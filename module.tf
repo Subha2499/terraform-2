@@ -12,7 +12,7 @@ provider "aws" {
   secret_key = var.aws_secret_key
 }
 provider "aws" {
-  region  = "us-east-2"
+  region  = "us-west-2"
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
 }
@@ -44,13 +44,13 @@ data "aws_ami" "aws_ubuntu" {
 # RESOURCES
 # Ami
 
-resource "aws_instance" "aws_ubuntu" {
+resource "aws_instance" "instance_us_east"{
   instance_type          = "t2.micro"
   ami                    = "ami-0e2c8caa4b6378d8c"
   key_name               = "test"
   user_data              = file("userdata.tpl")
 }  
-resource "aws_instance" "aws_ubuntu" {
+resource "aws_instance" "instance_us_west"{
   instance_type          = "t2.micro"
   ami                    = "ami-2c8caa4b6378d8c"
   key_name               = "guvi"
